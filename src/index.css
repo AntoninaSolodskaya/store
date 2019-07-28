@@ -1,10 +1,11 @@
-body {
+body, html {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 
 code {
@@ -17,8 +18,9 @@ code {
   flex-direction: column;
 }
 
-h1 {
+h1, h3 {
   text-align: center;
+  padding: 20px 20px;
 }
 
 .block {
@@ -30,22 +32,45 @@ h1 {
 
 .section {
   display: flex;
-  justify-content: space-between;
+  padding-top: 55px;
 }
 
 .left-column {
-  width: 30%;
-  background-color: paleturquoise;
+  width: 20%;
+  border-right: 1px solid lightgrey;
 }
 
 .right-column {
-  width: 70%;
+  width: 80%;
   margin-left: 20px;
-  background-color: paleturquoise;
 }
-@media (max-width: 576px) {
+
+.icons {
+  margin-right: 10px;
+}
+
+.main-block {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.card-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  width: 30%;
+}
+
+.card-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 375px) {
   .section {
     flex-direction: column-reverse;
+    width: 100%;
   }
   .left-column {
     width: 100%;
@@ -54,4 +79,14 @@ h1 {
     width: 100%;
     margin-left: 0;
   }
+  .card-block {
+    min-width: 100%;
+    margin-top: 15px;
+  }
+
+  .card-section {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
+

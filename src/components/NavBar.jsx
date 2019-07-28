@@ -13,6 +13,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  FormInline,
   MDBIcon
 } from "mdbreact";
 
@@ -27,7 +28,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <Navbar color="default-color" dark expand="md">
+      <Navbar color="default-color" dark expand="md" scrolling fixed="top">
         <NavbarBrand>
           <strong className="white-text">Navbar</strong>
         </NavbarBrand>
@@ -35,16 +36,17 @@ class NavBar extends Component {
         <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <NavbarNav left>
             <NavItem active>
-              <NavLink to="#!" className="mr-3 mr-lg-0">Home</NavLink>
+              <NavLink to="#!" className="mr-3 mr-lg-0">
+                Home
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="#!" className="mr-3 mr-lg-0">Features</NavLink>
+              <NavLink to="#!" className="mr-3 mr-lg-0">
+                Sell
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="#!" className="mr-3 mr-lg-0">Pricing</NavLink>
-            </NavItem>
-            <NavItem>
-              <Dropdown>
+              <Dropdown className="mr-3 mr-lg-0">
                 <DropdownToggle nav caret>
                   <div className="d-none d-md-inline">Dropdown</div>
                 </DropdownToggle>
@@ -56,16 +58,64 @@ class NavBar extends Component {
                 </DropdownMenu>
               </Dropdown>
             </NavItem>
+            <NavItem>
+              <FormInline waves>
+                <div className="md-form my-0">
+                  <input
+                    className="form-control mr-sm-2"
+                    type="text"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                </div>
+              </FormInline>
+            </NavItem>
           </NavbarNav>
           <NavbarNav right>
+            <NavItem className="mr-3 mr-lg-0">
+              <Dropdown>
+                <DropdownToggle nav caret>
+                  <MDBIcon icon="user" />
+                </DropdownToggle>
+                <DropdownMenu className="dropdown-default">
+                  <DropdownItem href="#!">
+                    <MDBIcon icon="user-plus" className="icons" />
+                    Create Acount
+                  </DropdownItem>
+                  <DropdownItem href="#!">
+                    <MDBIcon icon="sign-in-alt" className="icons" />
+                    Sign In
+                  </DropdownItem>
+                  <DropdownItem href="#!">
+                    <MDBIcon icon="sign-out-alt" className="icons" />
+                    Logout
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </NavItem>
+
             <NavItem>
-              <NavLink className="waves-effect waves-light mr-3 mr-lg-0" to="#!">
-                <MDBIcon fab icon="twitter" />
+              <NavLink
+                className="waves-effect waves-light mr-3 mr-lg-0"
+                to="#!"
+              >
+                <MDBIcon icon="balance-scale" />
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="waves-effect waves-light" to="#!">
-                <MDBIcon icon="user" />
+              <NavLink
+                className="waves-effect waves-light mr-3 mr-lg-0"
+                to="#!"
+              >
+                <MDBIcon icon="heart" />
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                className="waves-effect waves-light mr-3 mr-lg-0"
+                to="#!"
+              >
+                <MDBIcon icon="shopping-cart" />
               </NavLink>
             </NavItem>
           </NavbarNav>
