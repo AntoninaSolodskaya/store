@@ -7,11 +7,13 @@ class RightColumn extends Component {
   render() {
     return (
       <Container>
-        <h1 className="teal-text">Right Column</h1>
+        <h1 className="teal-text">Online Srore</h1>
         <CarouselPage />
         <div className="main-block">
           <h3 className="teal-text">Best Sale</h3>
           <div className="card-section">
+            <CardPage />
+            <CardPage />
             <CardPage />
             <CardPage />
             <CardPage />
@@ -21,9 +23,13 @@ class RightColumn extends Component {
             <CardPage />
             <CardPage />
             <CardPage />
+            <CardPage />
+            <CardPage />
           </div>
           <h3 className="teal-text">New Products</h3>
           <div className="card-section">
+            <CardPage />
+            <CardPage />
             <CardPage />
             <CardPage />
             <CardPage />

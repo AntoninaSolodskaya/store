@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import {
   Navbar,
@@ -28,7 +28,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <Navbar color="default-color" dark expand="md" scrolling fixed="top">
+      <Navbar color="default-color" dark expand="md" fixed="top">
         <NavbarBrand>
           <strong className="white-text">Navbar</strong>
         </NavbarBrand>
@@ -36,7 +36,7 @@ class NavBar extends Component {
         <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <NavbarNav left>
             <NavItem active>
-              <NavLink to="#!" className="mr-3 mr-lg-0">
+              <NavLink to="/" className="mr-3 mr-lg-0">
                 Home
               </NavLink>
             </NavItem>
@@ -78,17 +78,23 @@ class NavBar extends Component {
                   <MDBIcon icon="user" />
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-default">
-                  <DropdownItem href="#!">
-                    <MDBIcon icon="user-plus" className="icons" />
-                    Create Acount
+                  <DropdownItem>
+                    <Link to="/register">
+                      <MDBIcon icon="user-plus" className="icons" />
+                      Create Acount
+                    </Link>
                   </DropdownItem>
-                  <DropdownItem href="#!">
-                    <MDBIcon icon="sign-in-alt" className="icons" />
-                    Sign In
+                  <DropdownItem>
+                    <Link to="/login">
+                      <MDBIcon icon="sign-in-alt" className="icons" />
+                      Sign In
+                    </Link>
                   </DropdownItem>
-                  <DropdownItem href="#!">
-                    <MDBIcon icon="sign-out-alt" className="icons" />
-                    Logout
+                  <DropdownItem>
+                    <Link to="/">
+                      <MDBIcon icon="sign-out-alt" className="icons" />
+                      Logout
+                    </Link>
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>

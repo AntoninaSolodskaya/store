@@ -22,9 +22,10 @@ const CarouselPage = () => {
           <CarouselItem itemId="1">
             <View>
               <img
-                className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg"
+               className="d-block w-100"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBnj6Jkk4gd_awahyUBJkAVUc4V_O4-23VO5dvGPbk2A-M1-3rpA"
                 alt="First slide"
+                style={{ maxHeight: '350px' }}
               />
             </View>
           </CarouselItem>
@@ -32,8 +33,9 @@ const CarouselPage = () => {
             <View>
               <img
                 className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(46).jpg"
+                src="https://www.thewrap.com/wp-content/uploads/2017/08/lameloball.jpg"
                 alt="Second slide"
+                style={{ maxHeight: '350px' }}
               />
             </View>
           </CarouselItem>
@@ -41,8 +43,9 @@ const CarouselPage = () => {
             <View>
               <img
                 className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(47).jpg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROVJyJ-4_gKZmuZ8uyif54MDeCODXQ6IIXtY2nh9oK2SmuMrMn"
                 alt="Third slide"
+                style={{ maxHeight: '350px' }}
               />
             </View>
           </CarouselItem>
