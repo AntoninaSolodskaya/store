@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "mdbreact";
 import CarouselPage from "./CarouselPage";
-import CardPage from "./CardPage";
+import Card from "./Card";
 
 class RightColumn extends Component {
   render() {
@@ -12,27 +12,27 @@ class RightColumn extends Component {
         <div className="main-block">
           <h3 className="teal-text">Best Sale</h3>
           <div className="card-section">
-            <CardPage />
-            <CardPage />
-            <CardPage />
-            <CardPage />
-            <CardPage />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
           </div>
           <h3 className="teal-text">Most Popular Sale</h3>
           <div className="card-section">
-            <CardPage />
-            <CardPage />
-            <CardPage />
-            <CardPage />
-            <CardPage />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
           </div>
           <h3 className="teal-text">New Products</h3>
           <div className="card-section">
-            <CardPage />
-            <CardPage />
-            <CardPage />
-            <CardPage />
-            <CardPage />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
           </div>
         </div>
       </Container>

@@ -5,7 +5,7 @@ import {
   MDBIcon
 } from "mdbreact";
 
-const CardPage = () => {
+const Card = () => {
   return (
     <div className="card-block">
         <CardImage
@@ -33,4 +33,4 @@ const CardPage = () => {
   );
 };
 
-export default CardPage;
+export default Card;

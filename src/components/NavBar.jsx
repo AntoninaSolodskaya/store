@@ -30,7 +30,7 @@ class NavBar extends Component {
     return (
       <Navbar color="default-color" dark expand="md" fixed="top">
         <NavbarBrand>
-          <strong className="white-text">Navbar</strong>
+          <strong className="white-text">Online Store</strong>
         </NavbarBrand>
         <NavbarToggler onClick={this.toggleCollapse} />
         <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
@@ -48,7 +48,7 @@ class NavBar extends Component {
             <NavItem>
               <Dropdown className="mr-3 mr-lg-0">
                 <DropdownToggle nav caret>
-                  <div className="d-none d-md-inline">Dropdown</div>
+                  <div className="d-none d-md-inline">Catalog</div>
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-default">
                   <DropdownItem href="#!">Action</DropdownItem>

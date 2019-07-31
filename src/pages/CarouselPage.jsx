@@ -22,8 +22,8 @@ const CarouselPage = () => {
           <CarouselItem itemId="1">
             <View>
               <img
-               className="d-block w-100"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBnj6Jkk4gd_awahyUBJkAVUc4V_O4-23VO5dvGPbk2A-M1-3rpA"
+                className="d-block w-100"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5L6SZFvgaN5tXlCWE_QLMx9Bkxa9ILcJAgAtIxRgLymM9tmz7"
                 alt="First slide"
                 style={{ maxHeight: '350px' }}
               />
