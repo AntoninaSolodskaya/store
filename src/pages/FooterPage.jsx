@@ -3,7 +3,7 @@ import { Col, Container, Row, Footer } from "mdbreact";
 
 const FooterPage = () => {
   return (
-    <Footer color="default-color" className="font-small pt-4 mt-4">
+    <Footer color="default-color" className="font-small">
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="6">

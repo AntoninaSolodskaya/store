@@ -26,7 +26,9 @@ export default class LeftColumn extends Component {
           className="m-2 d-flex flex-column justify-content-center"
           style={bgGrey}
         >
-          <h5 className="mt-3 teal-text text-center">Welcome to your account</h5>
+          <h5 className="mt-3 teal-text text-center">
+            Welcome to your account
+          </h5>
           <MDBBtn className="mt-3 mb-2">Your Account</MDBBtn>
           <Link
             to="/register"
@@ -39,8 +41,13 @@ export default class LeftColumn extends Component {
           className="m-2 d-flex flex-column justify-content-center"
           style={bgGrey}
         >
-          <h5 className="mt-3 teal-text text-center">We are in social networks</h5>
-          <div className="d-flex justify-content-between mb-3" style={{ width: '80%', margin: '0 auto' }}>
+          <h5 className="mt-3 teal-text text-center">
+            We are in social networks
+          </h5>
+          <div
+            className="d-flex justify-content-between mb-3"
+            style={{ width: "80%", margin: "0 auto" }}
+          >
             <button className="sircle">
               <MDBIcon fab icon="facebook-f" />
             </button>

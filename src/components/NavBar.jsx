@@ -14,7 +14,8 @@ import {
   DropdownMenu,
   DropdownItem,
   FormInline,
-  MDBIcon
+  MDBIcon,
+  MDBTooltip
 } from "mdbreact";
 
 class NavBar extends Component {
@@ -101,28 +102,37 @@ class NavBar extends Component {
             </NavItem>
 
             <NavItem>
-              <NavLink
-                className="waves-effect waves-light mr-3 mr-lg-0"
-                to="#!"
-              >
-                <MDBIcon icon="balance-scale" />
-              </NavLink>
+              <MDBTooltip placement="bottom">
+                <NavLink
+                  className="waves-effect waves-light mr-3 mr-lg-0"
+                  to="#!"
+                >
+                  <MDBIcon icon="balance-scale" />
+                </NavLink>
+                <div>It's nothing here</div>
+              </MDBTooltip>
             </NavItem>
             <NavItem>
-              <NavLink
-                className="waves-effect waves-light mr-3 mr-lg-0"
-                to="#!"
-              >
-                <MDBIcon icon="heart" />
-              </NavLink>
+              <MDBTooltip placement="bottom">
+                <NavLink
+                  className="waves-effect waves-light mr-3 mr-lg-0"
+                  to="#!"
+                >
+                  <MDBIcon icon="heart" />
+                </NavLink>
+                <div>It's nothing here</div>
+              </MDBTooltip>
             </NavItem>
             <NavItem>
-              <NavLink
-                className="waves-effect waves-light mr-3 mr-lg-0"
-                to="#!"
-              >
-                <MDBIcon icon="shopping-cart" />
-              </NavLink>
+              <MDBTooltip placement="bottom">
+                <NavLink
+                  className="waves-effect waves-light mr-3 mr-lg-0"
+                  to="#!"
+                >
+                  <MDBIcon icon="shopping-cart" />
+                </NavLink>
+                <div>It's nothing here</div>
+              </MDBTooltip>
             </NavItem>
           </NavbarNav>
         </Collapse>
