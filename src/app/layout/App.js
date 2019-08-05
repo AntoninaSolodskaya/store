@@ -10,8 +10,10 @@ import SignUpForm from "../../pages/SignUpForm";
 import LoginForm from "../../pages/LoginForm";
 import Sale from "../../pages/Sale";
 import SaleForm from "../../pages/SaleForm";
-import Chat from "../../pages/Chat";
 import About from "../../pages/About";
+import Sell from "../../pages/Sell";
+import Blog from "../../pages/Blog";
+import ReviewForm from "../../pages/ReviewForm";
 
 function App() {
   return (
@@ -24,8 +26,10 @@ function App() {
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/sale" component={Sale} />
           <Route exact path="/addSale" component={SaleForm} />
-          <Route exact path="/chat" component={Chat} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/cards" component={Sell} />
+          <Route exact path="/blog" component={Blog} />
+          <Route exact path="/review" component={ReviewForm} />
         </Switch>
       </main>
       <FooterPage />

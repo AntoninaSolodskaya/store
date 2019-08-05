@@ -14,13 +14,18 @@ import {
   DropdownMenu,
   DropdownItem,
   FormInline,
-  MDBIcon,
-  MDBTooltip
+  MDBIcon
 } from "mdbreact";
 
 class NavBar extends Component {
   state = {
     isOpen: false
+  };
+
+  toggle = nr => () => {
+    this.setState({
+      modal: !this.state.modal
+    });
   };
 
   toggleCollapse = () => {
@@ -42,7 +47,7 @@ class NavBar extends Component {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="#!" className="mr-3 mr-lg-0">
+              <NavLink to="/cards" className="mr-3 mr-lg-0">
                 Sell
               </NavLink>
             </NavItem>
@@ -102,37 +107,28 @@ class NavBar extends Component {
             </NavItem>
 
             <NavItem>
-              <MDBTooltip placement="bottom">
-                <NavLink
-                  className="waves-effect waves-light mr-3 mr-lg-0"
-                  to="#!"
-                >
-                  <MDBIcon icon="balance-scale" />
-                </NavLink>
-                <div>It's nothing here</div>
-              </MDBTooltip>
+              <NavLink
+                className="waves-effect waves-light mr-3 mr-lg-0"
+                to="#!"
+              >
+                <MDBIcon icon="balance-scale" />
+              </NavLink>
             </NavItem>
             <NavItem>
-              <MDBTooltip placement="bottom">
-                <NavLink
-                  className="waves-effect waves-light mr-3 mr-lg-0"
-                  to="#!"
-                >
-                  <MDBIcon icon="heart" />
-                </NavLink>
-                <div>It's nothing here</div>
-              </MDBTooltip>
+              <NavLink
+                className="waves-effect waves-light mr-3 mr-lg-0"
+                to="#!"
+              >
+                <MDBIcon icon="heart" />
+              </NavLink>
             </NavItem>
             <NavItem>
-              <MDBTooltip placement="bottom">
-                <NavLink
-                  className="waves-effect waves-light mr-3 mr-lg-0"
-                  to="#!"
-                >
-                  <MDBIcon icon="shopping-cart" />
-                </NavLink>
-                <div>It's nothing here</div>
-              </MDBTooltip>
+              <NavLink
+                className="waves-effect waves-light mr-3 mr-lg-0"
+                to="#!"
+              >
+                <MDBIcon icon="shopping-cart" />
+              </NavLink>
             </NavItem>
           </NavbarNav>
         </Collapse>

@@ -7,7 +7,7 @@ export default class LeftColumn extends Component {
     const bgGrey = { backgroundColor: "#F7F7F7" };
     return (
       <div className="mr-2 d-flex flex-column">
-        <h2 className="teal-text">Left Column</h2>
+        <h2 className="teal-text d-flex justify-content-center">Left Column</h2>
         <div className="d-flex flex-column mb-4">
           <Link to="/sale" className="p-2 teal-text">
             Sale
@@ -18,8 +18,11 @@ export default class LeftColumn extends Component {
           <Link to="/about" className="p-2 teal-text">
             About Us
           </Link>
-          <Link to="/chat" className="p-2 teal-text">
-            Chat
+          <Link to="/blog" className="p-2 teal-text">
+            Blog
+          </Link>
+          <Link to="/review" className="p-2 teal-text">
+            Review
           </Link>
         </div>
         <div
@@ -29,7 +32,14 @@ export default class LeftColumn extends Component {
           <h5 className="mt-3 teal-text text-center">
             Welcome to your account
           </h5>
-          <MDBBtn className="mt-3 mb-2">Your Account</MDBBtn>
+          <MDBBtn className="mt-3 mb-2">
+            <Link
+              to="/register"
+              className="white-text d-flex justify-content-center"
+            >
+              Your Account
+            </Link>
+          </MDBBtn>
           <Link
             to="/register"
             className="teal-text d-flex justify-content-center mb-2"

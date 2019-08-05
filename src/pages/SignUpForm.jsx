@@ -1,52 +1,58 @@
 import React, { Component } from "react";
-import { MDBBtn, MDBInput } from "mdbreact";
+import { Link } from "react-router-dom";
+import {
+  MDBBtn,
+  MDBInput,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody
+} from "mdbreact";
 
 class SignUpForm extends Component {
   render() {
     return (
-      <div className="form-container">
-        <form>
-          <p className="h5 text-center mb-4">Sign up</p>
-          <div className="grey-text">
-            <MDBInput
-              label="Your name"
-              icon="user"
-              group
-              type="text"
-              validate
-              error="wrong"
-              success="right"
-            />
+      <div className="modal-wrap">
+        <MDBCard className="mx-4">
+          <MDBCardBody className="mx-4">
+            <div className="text-center">
+              <h3 className="teal-text mb-5">
+                <strong>Sign up</strong>
+              </h3>
+            </div>
             <MDBInput
               label="Your email"
-              icon="envelope"
-              group
-              type="email"
-              validate
-              error="wrong"
-              success="right"
-            />
-            <MDBInput
-              label="Confirm your email"
-              icon="exclamation-triangle"
               group
               type="text"
+              icon="envelope"
+              iconClass="grey-text"
               validate
-              error="wrong"
-              success="right"
             />
             <MDBInput
               label="Your password"
-              icon="lock"
               group
               type="password"
+              icon="unlock-alt"
+              iconClass="grey-text"
               validate
             />
-          </div>
-          <div className="text-center">
-            <MDBBtn color="primary">Register</MDBBtn>
-          </div>
-        </form>
+            <MDBRow className="d-flex align-items-center mb-4">
+              <MDBCol md="6" className="text-center">
+                <MDBBtn type="button" className="btn btn-default z-depth-1">
+                  Sign up
+                </MDBBtn>
+              </MDBCol>
+              <MDBCol md="6">
+                <p className="font-small grey-text d-flex justify-content-end">
+                  Have an account?
+                  <Link to="/login" className="blue-text">
+                    Log in
+                  </Link>
+                </p>
+              </MDBCol>
+            </MDBRow>
+          </MDBCardBody>
+        </MDBCard>
       </div>
     );
   }
