@@ -10,7 +10,6 @@ import {
   MDBIcon,
   MDBBtn
 } from "mdbreact";
-import "./BlogPage.css";
 
 class Blog extends Component {
   constructor() {

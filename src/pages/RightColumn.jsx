@@ -1,42 +1,27 @@
 import React, { Component } from "react";
-import { Container } from "mdbreact";
-import CarouselPage from "./CarouselPage";
-import Card from "./Card";
+import { MDBContainer } from "mdbreact";
+import { connect } from "react-redux";
+import Card from "./card/Card";
+
+const mapState = state => ({
+  cards: state.cards
+});
 
 class RightColumn extends Component {
   render() {
+    const { cards } = this.props;
     return (
-      <Container>
-        <h1 className="teal-text">Online Srore</h1>
-        <CarouselPage />
+      <MDBContainer className="mb-5">
         <div className="main-block">
-          <h3 className="teal-text">Best Sale</h3>
+          <h1 className="h1-responsive teal-text">Catalog of Products</h1>
           <div className="card-section">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </div>
-          <h3 className="teal-text">Most Popular Sale</h3>
-          <div className="card-section">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </div>
-          <h3 className="teal-text">New Products</h3>
-          <div className="card-section">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {cards && cards.map(card => (
+              <Card key={card.id} card={card} />
+            ))}
           </div>
         </div>
-      </Container>
+      </MDBContainer>
     );
   }
 }
-export default RightColumn;
+export default connect(mapState)(RightColumn);

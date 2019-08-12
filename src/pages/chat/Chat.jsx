@@ -8,7 +8,7 @@ import {
   MDBCol,
   MDBListGroup
 } from "mdbreact";
-import ReviewForm from "./ReviewForm";
+import ReviewForm from "../sale/ReviewForm";
 
 class Chat extends Component {
   state = {
@@ -102,6 +102,7 @@ class Chat extends Component {
     ]
   };
   render() {
+    const { card } = this.props;
     return (
       <MDBContainer className="my-5">
         <h1 className="h1-responsive teal-text font-weight-bold pb-0">
@@ -109,7 +110,7 @@ class Chat extends Component {
         </h1>
         <div className="d-flex justify-content-between align-items-center">
           <h4 className="h4-responsive teal-text font-weight-bold">
-            Name of product
+            {card.title}
           </h4>
           <MDBBtn>Leave a review</MDBBtn>
         </div>

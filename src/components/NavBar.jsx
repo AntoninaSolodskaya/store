@@ -52,6 +52,16 @@ class NavBar extends Component {
               </NavLink>
             </NavItem>
             <NavItem>
+              <NavLink to="/card" className="mr-3 mr-lg-0">
+                CardPage
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/test" className="mr-3 mr-lg-0">
+                Test
+              </NavLink>
+            </NavItem>
+            <NavItem>
               <Dropdown className="mr-3 mr-lg-0">
                 <DropdownToggle nav caret>
                   <div className="d-none d-md-inline">Catalog</div>
