@@ -7,7 +7,10 @@ import "./index.css";
 import App from "./app/layout/App";
 import * as serviceWorker from "./serviceWorker";
 import ScrollToTop from "./common/util/ScrollToTop";
+import { loadCards } from './pages/card/cardActions';
+
 const store = configureStore();
+store.dispatch(loadCards());
 
 ReactDOM.render(
   <Provider store={store}>

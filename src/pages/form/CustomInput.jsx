@@ -11,7 +11,7 @@ const CustomInput = ({
 }) => (
   <Fragment>
     <MDBInput {...input} name={name} type={type} label={label} icon={icon} />
-    {touched && error && <span>{error}</span>}
+    {touched && error && <span className="red-text">{error}</span>}
   </Fragment>
 );
 

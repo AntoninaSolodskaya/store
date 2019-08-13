@@ -1,84 +1,7 @@
 import { createReducer } from "../../common/util/reducerUtil";
-import { CREATE_CARD, UPDATE_CARD } from "./cardConstants";
+import { CREATE_CARD, UPDATE_CARD, FETCH_CARDS } from "./cardConstants";
 
-const initialState = [
-  {
-    id: "1",
-    img:
-      "https://png.pngtree.com/element_origin_min_pic/16/11/10/40439dc1ed9aa08c792a87d9e59fd12d.jpg",
-    title: "Card title",
-    price: 150,
-    description: [
-      {
-        item: "Name Of Product",
-        characters: "Some quick example bulk of the card&apos;s content"
-      },
-      {
-        item: "Country",
-        characters: "China"
-      }
-    ]
-  },
-  {
-    id: "2",
-    title: "Trip to Punch",
-    img: "https://www.thewrap.com/wp-content/uploads/2017/08/lameloball.jpg",
-    price: 300,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper."
-  },
-  {
-    id: "3",
-    title: "TC 2016 Red SS",
-    description: [
-      {
-        item: "Name Of Product",
-        characters: "Some quick example bulk of the card&apos;s content"
-      },
-      {
-        item: "Country",
-        characters: "China"
-      }
-    ],
-    price: 74,
-    img:
-      "https://cdn.shopify.com/s/files/1/0340/2849/products/TC2016_red_SS_front_grande.jpg?v=1468602448"
-  },
-  {
-    id: "4",
-    title: "TC 2016 Dark SS",
-    description: [
-      {
-        item: "Name Of Product",
-        characters: "Some quick example bulk of the card&apos;s content"
-      },
-      {
-        item: "Country",
-        characters: "China"
-      }
-    ],
-    price: 35.99,
-    img:
-      "https://cdn.shopify.com/s/files/1/0340/2849/products/TC2016_SS_front_grande.jpg?v=1460557226"
-  },
-  {
-    id: "7",
-    img:
-      "https://png.pngtree.com/element_origin_min_pic/16/11/10/40439dc1ed9aa08c792a87d9e59fd12d.jpg",
-    title: "Card title",
-    price: 150,
-    description: [
-      {
-        item: "Name Of Product",
-        characters: "Some quick example bulk of the card&apos;s content"
-      },
-      {
-        item: "Country",
-        characters: "China"
-      }
-    ]
-  }
-];
+const initialState = [];
 
 export const createCard = (state, payload) => {
   return [...state, Object.assign({}, payload.card)];
@@ -91,7 +14,12 @@ export const updateCard = (state, payload) => {
   ];
 };
 
+export const fetchCards = (state, payload) => {
+  return payload.cards
+}
+
 export default createReducer(initialState, {
   [CREATE_CARD]: createCard,
-  [UPDATE_CARD]: updateCard
+  [UPDATE_CARD]: updateCard,
+  [FETCH_CARDS]: fetchCards
 });

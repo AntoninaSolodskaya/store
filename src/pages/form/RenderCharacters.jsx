@@ -11,8 +11,7 @@ const RenderCharacters = ({ fields }) => {
           <Field
             name={`${name}.item`}
             component={CustomInput}
-            type="text"
-            className="ingredient"
+            type="text" 
             label="Item of Product"
             icon="pencil-alt"
             iconClass="dark-grey"
@@ -22,6 +21,8 @@ const RenderCharacters = ({ fields }) => {
             label="Characters of Product"
             component={CustomInput}
             type="text"
+            icon="pencil-alt"
+            iconClass="dark-grey"
           />
           <MDBBtn
             type="button"
@@ -35,7 +36,7 @@ const RenderCharacters = ({ fields }) => {
       ))}
       <div className="d-flex justify-content-center" >
          <MDBBtn type="button" onClick={() => fields.push()}>
-        Click to add +
+        Click to add characters +
       </MDBBtn>
       </div>
      

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm, FieldArray } from "redux-form";
+import { validate } from "../validation/index";
 import cuid from "cuid";
 import { MDBBtn, MDBIcon, MDBCard, MDBCardBody } from "mdbreact";
 import CustomInput from "../form/CustomInput";
 import { createCard, updateCard } from "./cardActions";
 import RenderCharacters from "../form/RenderCharacters";
+// import DropzoneField from "../form/DropzoneField";
 
 const mapState = (state, ownProps) => {
   const cardId = ownProps.match.params.id;
@@ -27,6 +29,10 @@ const actions = {
 };
 
 class SaleForm extends Component {
+  // state = { 
+  //   imageFile: {} 
+  // };
+ 
   onFormSubmit = values => {
     if (this.props.initialValues.id) {
       this.props.updateCard(values);
@@ -35,12 +41,15 @@ class SaleForm extends Component {
       const newCard = {
         ...values,
         id: cuid(),
+        // img: this.state.imageFile || "/assets/photo.png"
         img: "/assets/photo.png"
       };
       this.props.createCard(newCard);
       this.props.history.push("/");
     }
   };
+
+  handleOnDrop = newImageFile => this.setState({ imageFile: newImageFile });
 
   render() {
     const { invalid, submitting, pristine } = this.props;
@@ -80,14 +89,18 @@ class SaleForm extends Component {
                 component={RenderCharacters}
                 type="text"
               />
-              <Field
+
+              {/* <Field
                 name="img"
                 label="Image"
                 type="text"
-                component={CustomInput}
+                component={DropzoneField}
+                imagefile={this.state.imageFile}
+                handleOnDrop={this.handleOnDrop}
                 icon="image"
                 iconClass="dark-grey"
-              />
+              /> */}
+               {/* {this.state.preview && <img src={this.state.preview} alt="preview" />} */}
               <div className="text-center mt-1-half">
                 <MDBBtn
                   color="info"
@@ -107,7 +120,6 @@ class SaleForm extends Component {
                   <MDBIcon icon="paper-plane" className="ml-1" />
                 </MDBBtn>
               </div>
-              
             </form>
           </MDBCardBody>
         </MDBCard>
@@ -119,4 +131,6 @@ class SaleForm extends Component {
 export default connect(
   mapState,
   actions
-)(reduxForm({ form: "saleForm" })(SaleForm));
+)(
+  reduxForm({ form: "saleForm", enableReinitialize: true, validate })(SaleForm)
+);
