@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Field } from 'redux-form'
 import { MDBBtn } from "mdbreact";
-import CustomInput from "../form/CustomInput";
+import CustomInput from "./CustomInput";
 
 const RenderCharacters = ({ fields }) => {
   return (

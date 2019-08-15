@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
+import "bootstrap-css-only";
 import "mdbreact/dist/css/mdb.css";
 import NavBar from "../../components/NavBar";
 import Main from "../../components/Main";
