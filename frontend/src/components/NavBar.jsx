@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
-
+import { connect } from 'react-redux';
 import {
-  Navbar,
+  MDBNavbar,
   NavbarBrand,
   NavbarNav,
   NavItem,
-  NavLink,
   NavbarToggler,
   Collapse,
   Dropdown,
@@ -16,6 +15,15 @@ import {
   FormInline,
   MDBIcon
 } from "mdbreact";
+import { logoutUser } from '../auth/authActions';
+
+const mapState = state => ({
+  auth: state.auth
+});
+
+const actions = {
+  logoutUser
+};
 
 class NavBar extends Component {
   state = {
@@ -32,9 +40,14 @@ class NavBar extends Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
+  handleSignOut = () => {
+    this.props.logoutUser();
+    localStorage.clear();
+  };
+
   render() {
     return (
-      <Navbar color="default-color" dark expand="md" fixed="top">
+      <MDBNavbar color="default-color" dark expand="md" fixed="top">
         <NavbarBrand>
           <strong className="white-text">Online Store</strong>
         </NavbarBrand>
@@ -42,24 +55,24 @@ class NavBar extends Component {
         <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <NavbarNav left>
             <NavItem active>
-              <NavLink to="/" className="mr-3 mr-lg-0">
+              <Link to="/" className="mr-3 mr-lg-0">
                 Home
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink to="/cards" className="mr-3 mr-lg-0">
+              <Link to="/cards" className="mr-3 mr-lg-0">
                 Sell
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink to="/card" className="mr-3 mr-lg-0">
+              <Link to="/card" className="mr-3 mr-lg-0">
                 CardPage
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink to="/test" className="mr-3 mr-lg-0">
+              <Link to="/test" className="mr-3 mr-lg-0">
                 Test
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
               <Dropdown className="mr-3 mr-lg-0">
@@ -67,10 +80,10 @@ class NavBar extends Component {
                   <div className="d-none d-md-inline">Catalog</div>
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-default">
-                  <DropdownItem href="#!">Action</DropdownItem>
-                  <DropdownItem href="#!">Another Action</DropdownItem>
-                  <DropdownItem href="#!">Something else here</DropdownItem>
-                  <DropdownItem href="#!">Something else here</DropdownItem>
+                  <DropdownItem href="/">Action</DropdownItem>
+                  <DropdownItem href="/">Another Action</DropdownItem>
+                  <DropdownItem href="/">Something else here</DropdownItem>
+                  <DropdownItem href="/">Something else here</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </NavItem>
@@ -107,7 +120,7 @@ class NavBar extends Component {
                     </Link>
                   </DropdownItem>
                   <DropdownItem>
-                    <Link to="/">
+                    <Link to="/" onClick={this.handleSignOut}>
                       <MDBIcon icon="sign-out-alt" className="icons" />
                       Logout
                     </Link>
@@ -117,34 +130,40 @@ class NavBar extends Component {
             </NavItem>
 
             <NavItem>
-              <NavLink
+              <Link
                 className="waves-effect waves-light mr-3 mr-lg-0"
-                to="#!"
+                to="/"
               >
                 <MDBIcon icon="balance-scale" />
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink
+              <Link
                 className="waves-effect waves-light mr-3 mr-lg-0"
-                to="#!"
+                to="/"
               >
                 <MDBIcon icon="heart" />
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink
+              <Link
                 className="waves-effect waves-light mr-3 mr-lg-0"
-                to="#!"
+                to="/"
               >
                 <MDBIcon icon="shopping-cart" />
-              </NavLink>
+              </Link>
             </NavItem>
           </NavbarNav>
         </Collapse>
-      </Navbar>
+      </MDBNavbar>
     );
   }
 }
 
-export default withRouter(NavBar);
+export default withRouter(
+  connect(
+    mapState,
+    actions
+  )(NavBar)
+);
+

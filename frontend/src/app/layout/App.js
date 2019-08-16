@@ -32,7 +32,11 @@ function App() {
           <Route exact path="/cards" component={Sell} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/review" component={ReviewForm} />
-          <Route exact path="/card/:id" render={props => <CardPage {...props} />} />
+          <Route
+            exact
+            path="/card/:id"
+            render={props => <CardPage {...props} />}
+          />
           <Route exact path="/test" component={TestComponent} />
         </Switch>
       </main>
