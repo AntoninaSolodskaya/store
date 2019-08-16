@@ -4,15 +4,13 @@ import testReducer from "../testarea/testReducer";
 import cardReducer from '../pages/card/cardReducer';
 import asyncReducer from '../async/asyncReducer';
 import authReducer from '../auth/authReducer';
-// import errorReducer from '../auth/errorReducer'
 
 const rootReducer = combineReducers({
   form: formReducer,
   test: testReducer,
   cards: cardReducer,
   async: asyncReducer,
-  auth: authReducer,
-  // errors: errorReducer
+  auth: authReducer
 });
 
 export default rootReducer;

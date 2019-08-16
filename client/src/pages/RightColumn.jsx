@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { MDBContainer } from "mdbreact";
 import { connect } from "react-redux";
+import { MDBContainer } from "mdbreact";
 import Card from "./card/Card";
 
 const mapState = state => ({
