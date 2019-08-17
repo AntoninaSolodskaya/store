@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {
   MDBContainer,
@@ -8,7 +9,6 @@ import {
   MDBTabContent,
   MDBNav,
   MDBNavItem,
-  MDBNavLink,
   MDBBadge,
   MDBCard,
   MDBCardHeader,
@@ -37,7 +37,7 @@ class CardPage extends Component {
     activeItem: "1"
   };
 
-  toggle = tab => e => {
+  toggle = tab => {
     if (this.state.activeItem !== tab) {
       this.setState({
         activeItem: tab
@@ -48,8 +48,8 @@ class CardPage extends Component {
   render() {
     const { card } = this.props;
     return (
-      <MDBContainer fluid className="pt-5">
-        <div className="d-flex justify-content-between align-items-center pt-3">
+      <MDBContainer fluid className="mt-5">
+        <div className="d-flex justify-content-between align-items-center pt-5">
           <h1 className="h1-responsive teal-text font-weight-bold pb-0">
             {card.title}
           </h1>
@@ -63,34 +63,34 @@ class CardPage extends Component {
         </div>
         <MDBNav className="nav-tabs mt-3">
           <MDBNavItem>
-            <MDBNavLink
+            <Link
               to="#"
-              active={this.state.activeItem === "1"}
               onClick={this.toggle("1")}
               role="tab"
+              className="mr-4"
             >
               All about the product
-            </MDBNavLink>
+            </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <MDBNavLink
+            <Link
               to="#"
-              active={this.state.activeItem === "2"}
               onClick={this.toggle("2")}
               role="tab"
+              className="mr-4"
             >
               Specifications
-            </MDBNavLink>
+            </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <MDBNavLink
+            <Link
               to="#"
-              active={this.state.activeItem === "3"}
               onClick={this.toggle("3")}
               role="tab"
+              className="mr-4"
             >
               Reviews <strong>16</strong>
-            </MDBNavLink>
+            </Link>
           </MDBNavItem>
         </MDBNav>
         <MDBTabContent activeItem={this.state.activeItem}>

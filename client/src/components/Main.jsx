@@ -6,11 +6,12 @@ import SpinnerPage from '../pages/loader/SpinnerPage';
 
 const mapState = state => ({
   cards: state.cards,
-  loading: state.async.loading
+  loading: state.async.loading,
 });
 
+
 class Main extends Component {
-  
+   
   render() {
     const { cards, loading } = this.props;
     if (loading) return <SpinnerPage inverted={true}/>

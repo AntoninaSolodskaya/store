@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { MDBBtn, MDBRow, MDBCol, MDBCard, MDBCardBody } from "mdbreact";
 import CustomInput from "../form/CustomInput";
@@ -31,11 +31,15 @@ const validate = values => {
   return errors;
 };
 
-
 class SignUpForm extends Component {
-
   render() {
-    const { registerUser, pristine, handleSubmit, submitting, auth } = this.props;
+    const {
+      registerUser,
+      pristine,
+      handleSubmit,
+      submitting,
+      auth
+    } = this.props;
     const isErr = auth.isErr;
     return (
       <div className="modal-wrap">
@@ -51,6 +55,7 @@ class SignUpForm extends Component {
                 name="name"
                 label="Your name"
                 type="text"
+                className="form-control"
                 component={CustomInput}
                 icon="envelope"
                 iconClass="grey-text"
@@ -58,7 +63,8 @@ class SignUpForm extends Component {
               <Field
                 name="email"
                 label="Your email"
-                type="text"
+                type="email"
+                className="form-control"
                 component={CustomInput}
                 icon="envelope"
                 iconClass="grey-text"
@@ -69,13 +75,15 @@ class SignUpForm extends Component {
                 label="Your password"
                 group
                 type="password"
+                className="form-control"
                 component={CustomInput}
                 icon="unlock-alt"
                 iconClass="grey-text"
               />
               <Field
-                name="password2"
+                name="new-password"
                 label="Confirm password"
+                className="form-control"
                 group
                 type="password"
                 component={CustomInput}
@@ -86,7 +94,11 @@ class SignUpForm extends Component {
 
               <MDBRow className="d-flex align-items-center mb-4">
                 <MDBCol md="6" className="text-center">
-                  <MDBBtn type="submit" disabled={pristine || submitting} className="btn btn-default z-depth-1">
+                  <MDBBtn
+                    type="submit"
+                    disabled={pristine || submitting}
+                    className="btn btn-default z-depth-1"
+                  >
                     Sign up
                   </MDBBtn>
                 </MDBCol>
@@ -107,7 +119,9 @@ class SignUpForm extends Component {
   }
 }
 
-export default connect(
-  mapState,
-  actions
-)(reduxForm({ form: "register", validate })(SignUpForm));
+export default withRouter(
+  connect(
+    mapState,
+    actions
+  )(reduxForm({ form: "register", validate })(SignUpForm))
+);

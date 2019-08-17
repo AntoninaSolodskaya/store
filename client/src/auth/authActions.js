@@ -75,16 +75,14 @@ import {
   LOGIN_USER,
   LOGIN_ERROR,
   REGISTER_ERROR,
-  SIGN_OUT_USER,
-  SET_CURRENT_USER
+  SIGN_OUT_USER
 } from "./authConstants";
 
 import instance from "../common/util/api";
 
-export const setCurrentUser = decoded => {
+export const loginUser = () => {
     return {
-      type: SET_CURRENT_USER,
-      payload: decoded
+      type: LOGIN_USER
     };
   };
 
@@ -97,9 +95,7 @@ export const login = values => {
           if (user) {
             localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("token", user.token);
-            localStorage.setItem("email", values.email);
             localStorage.setItem("userId", user._id);
-
             history.push("/")
           }
         });
@@ -119,7 +115,7 @@ export const registerUser = values => {
       await instance.post(`/users/register`, values)
         .then(user => {
           localStorage.setItem("email", user.email);
-          history.goBack();
+          history.push("/login")
         });
     } catch (error) {
       console.log(error);

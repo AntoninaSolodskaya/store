@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { withRouter, Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import {
   MDBNavbar,
   NavbarBrand,
@@ -13,39 +13,28 @@ import {
   DropdownMenu,
   DropdownItem,
   FormInline,
-  MDBIcon
+  MDBIcon,
+  MDBBtn
 } from "mdbreact";
-import { logoutUser } from '../auth/authActions';
 
 const mapState = state => ({
   auth: state.auth
 });
-
-const actions = {
-  logoutUser
-};
 
 class NavBar extends Component {
   state = {
     isOpen: false
   };
 
-  toggle = nr => () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  };
-
   toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
-  handleSignOut = () => {
-    this.props.logoutUser();
-    localStorage.clear();
-  };
-
   render() {
+    const { handleSignOut, auth } = this.props;
+    const email = auth.currentUser;
+    const authenticated = auth.authenticated;
+
     return (
       <MDBNavbar color="default-color" dark expand="md" fixed="top">
         <NavbarBrand>
@@ -53,24 +42,24 @@ class NavBar extends Component {
         </NavbarBrand>
         <NavbarToggler onClick={this.toggleCollapse} />
         <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-          <NavbarNav left>
+          <NavbarNav left className="align-items-center">
             <NavItem active>
-              <Link to="/" className="mr-3 mr-lg-0">
+              <Link to="/" className="mr-3 white-text">
                 Home
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/cards" className="mr-3 mr-lg-0">
+              <Link to="/cards" className="mr-3 white-text">
                 Sell
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/card" className="mr-3 mr-lg-0">
+              <Link to="/card" className="mr-3 white-text">
                 CardPage
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/test" className="mr-3 mr-lg-0">
+              <Link to="/test" className="mr-3 white-text">
                 Test
               </Link>
             </NavItem>
@@ -102,53 +91,50 @@ class NavBar extends Component {
           </NavbarNav>
           <NavbarNav right>
             <NavItem className="mr-3 mr-lg-0">
-              <Dropdown>
-                <DropdownToggle nav caret>
-                  <MDBIcon icon="user" />
-                </DropdownToggle>
-                <DropdownMenu className="dropdown-default">
-                  <DropdownItem>
-                    <Link to="/register">
-                      <MDBIcon icon="user-plus" className="icons" />
-                      Create Acount
-                    </Link>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/login">
-                      <MDBIcon icon="sign-in-alt" className="icons" />
-                      Sign In
-                    </Link>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <Link to="/" onClick={this.handleSignOut}>
-                      <MDBIcon icon="sign-out-alt" className="icons" />
-                      Logout
-                    </Link>
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
+              {!authenticated ? (
+                <Fragment>
+                  <Link to="/register">
+                    <MDBIcon icon="user-plus" className="icons" />
+                    Create Acount
+                  </Link>
+                  <Link to="/login">
+                    <MDBIcon icon="sign-in-alt" className="icons" />
+                    Sign In
+                  </Link>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <span className="white-text mr-2">
+                    {email}
+                  </span>
+                  <MDBBtn onClick={handleSignOut} size="sm">
+                    <MDBIcon icon="sign-out-alt" className="icons" />
+                    Logout
+                  </MDBBtn>
+                </Fragment>
+              )}
             </NavItem>
 
             <NavItem>
               <Link
-                className="waves-effect waves-light mr-3 mr-lg-0"
-                to="/"
+                className="waves-effect waves-light mr-3 mr-lg-0 white-text"
+                to="#"
               >
                 <MDBIcon icon="balance-scale" />
               </Link>
             </NavItem>
             <NavItem>
               <Link
-                className="waves-effect waves-light mr-3 mr-lg-0"
-                to="/"
+                className="waves-effect waves-light mr-3 mr-lg-0 white-text"
+                to="#"
               >
                 <MDBIcon icon="heart" />
               </Link>
             </NavItem>
             <NavItem>
               <Link
-                className="waves-effect waves-light mr-3 mr-lg-0"
-                to="/"
+                className="waves-effect waves-light mr-3 mr-lg-0 white-text"
+                to="#"
               >
                 <MDBIcon icon="shopping-cart" />
               </Link>
@@ -160,10 +146,4 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter(
-  connect(
-    mapState,
-    actions
-  )(NavBar)
-);
-
+export default withRouter(connect(mapState)(NavBar));

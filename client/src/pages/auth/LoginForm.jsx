@@ -126,5 +126,3 @@ export default withRouter(
     actions
   )(reduxForm({ form: "login", validate })(LoginForm))
 );
-
-
