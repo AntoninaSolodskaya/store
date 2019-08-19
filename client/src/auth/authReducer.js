@@ -1,32 +1,3 @@
-// import {
-//     SET_CURRENT_USER,
-//     USER_LOADING
-//   } from "./authConstants";
-
-//   const initialState = {
-//     isAuthenticated: false,
-//     user: {},
-//     loading: false
-//   };
-
-//   export default function(state = initialState, action) {
-//     switch (action.type) {
-//       case SET_CURRENT_USER:
-//         return {
-//           ...state,
-//           isAuthenticated: true,
-//           user: action.payload
-//         };
-//       case USER_LOADING:
-//         return {
-//           ...state,
-//           loading: true
-//         };
-//       default:
-//         return state;
-//     }
-//   }
-
 import { createReducer } from '../common/util/reducerUtil';
 import { LOGIN_USER, SIGN_OUT_USER, LOGIN_ERROR, REGISTER_ERROR } from './authConstants';
 

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   MDBNavbar,
@@ -146,4 +146,4 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter(connect(mapState)(NavBar));
+export default connect(mapState)(NavBar);

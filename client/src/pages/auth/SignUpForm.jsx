@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { MDBBtn, MDBRow, MDBCol, MDBCard, MDBCardBody } from "mdbreact";
 import CustomInput from "../form/CustomInput";
@@ -119,9 +119,9 @@ class SignUpForm extends Component {
   }
 }
 
-export default withRouter(
+export default 
   connect(
     mapState,
     actions
   )(reduxForm({ form: "register", validate })(SignUpForm))
-);
+

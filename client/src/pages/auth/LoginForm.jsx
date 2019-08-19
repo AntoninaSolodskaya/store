@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import {
@@ -120,9 +120,9 @@ class LoginForm extends Component {
   }
 }
 
-export default withRouter(
+export default
   connect(
     mapState,
     actions
   )(reduxForm({ form: "login", validate })(LoginForm))
-);
+

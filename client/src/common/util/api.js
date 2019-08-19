@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: '/api/'
+  baseURL: '/api'
 });
 
 instance.defaults.headers.common['Authorization'] = localStorage.getItem("token")

@@ -11,7 +11,6 @@ const mapState = state => ({
 
 
 class Main extends Component {
-   
   render() {
     const { cards, loading } = this.props;
     if (loading) return <SpinnerPage inverted={true}/>

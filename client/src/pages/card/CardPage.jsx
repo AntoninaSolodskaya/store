@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   MDBContainer,
@@ -24,7 +24,7 @@ const mapState = (state, ownProps) => {
   let card = {};
 
   if (cardId && state.cards.length > 0) {
-    card = state.cards.filter(card => card.id === cardId)[0];
+    card = state.cards.filter(card => card._id === cardId)[0];
   }
 
   return {
@@ -37,7 +37,7 @@ class CardPage extends Component {
     activeItem: "1"
   };
 
-  toggle = tab => {
+  toggle = tab => e => {
     if (this.state.activeItem !== tab) {
       this.setState({
         activeItem: tab
@@ -54,7 +54,7 @@ class CardPage extends Component {
             {card.title}
           </h1>
           <MDBBadge color="default" className="py-2 px-2">
-            product code:{card.id}
+            product code:{card._id}
           </MDBBadge>
         </div>
         <div className="d-flex justify-content-around w-50">
@@ -63,32 +63,17 @@ class CardPage extends Component {
         </div>
         <MDBNav className="nav-tabs mt-3">
           <MDBNavItem>
-            <Link
-              to="#"
-              onClick={this.toggle("1")}
-              role="tab"
-              className="mr-4"
-            >
+            <Link to="#" onClick={this.toggle("1")} role="tab" className="mr-4">
               All about the product
             </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Link
-              to="#"
-              onClick={this.toggle("2")}
-              role="tab"
-              className="mr-4"
-            >
+            <Link to="#" onClick={this.toggle("2")} role="tab" className="mr-4">
               Specifications
             </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Link
-              to="#"
-              onClick={this.toggle("3")}
-              role="tab"
-              className="mr-4"
-            >
+            <Link to="#" onClick={this.toggle("3")} role="tab" className="mr-4">
               Reviews <strong>16</strong>
             </Link>
           </MDBNavItem>
@@ -100,7 +85,7 @@ class CardPage extends Component {
                 <MDBCol md="7" className="left-column">
                   <MDBView hover zoom>
                     <img
-                      src={card.img}
+                      src={card.image}
                       className="img-fluid"
                       alt=""
                       style={{ height: "400px", width: "400px" }}

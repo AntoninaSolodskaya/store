@@ -4,17 +4,17 @@ import { CardBody, MDBCard, CardImage, MDBIcon, MDBBtn } from "mdbreact";
 
 class Card extends Component {
   render() {
-    const { card } = this.props; 
+    const { card, deleteCard } = this.props; 
     return (
       <MDBCard className="my-3 cart">
         <CardImage
           className="img-fluid w-100"
-          src={card.img}
+          src={card.image}
           style={{ height: "300px" }}
           waves
         ></CardImage>
         <CardBody>
-          <Link to={`/card/${card.id}`}><h5>{card.title}</h5></Link>
+          <Link to={`/card/${card._id}`}><h5>{card.title}</h5></Link>
           <div className="price-section">
             <span className="teal-text">{card.price}$</span>
             <button className="btn-cart">
@@ -25,8 +25,9 @@ class Card extends Component {
             </button>
           </div>
         </CardBody>
+        <MDBBtn onClick={deleteCard(card._id)} as="a" color="red" floated="right" >Delete</MDBBtn>
         <MDBBtn>
-          <Link to={`/card/${card.id}`} className="white-text">View</Link>
+          <Link to={`/card/${card._id}`} className="white-text">View</Link>
         </MDBBtn>
       </MDBCard>
     );

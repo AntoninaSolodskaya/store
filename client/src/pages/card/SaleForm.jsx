@@ -7,7 +7,7 @@ import { MDBBtn, MDBIcon, MDBCard, MDBCardBody } from "mdbreact";
 import CustomInput from "../form/CustomInput";
 import { createCard, updateCard } from "./cardActions";
 import RenderCharacters from "../form/RenderCharacters";
-// import DropzoneField from "../form/DropzoneField";
+import DropzoneField from "../form/DropzoneField";
 
 const mapState = (state, ownProps) => {
   const cardId = ownProps.match.params.id;
@@ -15,7 +15,7 @@ const mapState = (state, ownProps) => {
   let card = {};
 
   if (cardId && state.cards.length > 0) {
-    card = state.cards.filter(card => card.id === cardId)[0];
+    card = state.cards.filter(card => card._id === cardId)[0];
   }
 
   return {
@@ -29,23 +29,22 @@ const actions = {
 };
 
 class SaleForm extends Component {
-  // state = { 
-  //   imageFile: {} 
+  // state = {
+  //   imageFile: {}
   // };
- 
+
   onFormSubmit = values => {
     if (this.props.initialValues.id) {
-      this.props.updateCard(values);
+      this.props.updatedCard(values);
       this.props.history.goBack();
     } else {
       const newCard = {
         ...values,
-        id: cuid(),
         // img: this.state.imageFile || "/assets/photo.png"
-        img: "/assets/photo.png"
+        image: "https://png.pngtree.com/element_origin_min_pic/16/11/10/40439dc1ed9aa08c792a87d9e59fd12d.jpg"
       };
       this.props.createCard(newCard);
-      this.props.history.push("/");
+      this.props.history.goBack();
     }
   };
 
@@ -83,7 +82,14 @@ class SaleForm extends Component {
                 icon="dollar-sign"
                 iconClass="dark-grey"
               />
-
+              <Field
+                name="category"
+                label="Category"
+                type="text"
+                component={CustomInput}
+                icon="file-signature"
+                iconClass="dark-grey"
+              />
               <FieldArray
                 name="description"
                 component={RenderCharacters}
@@ -91,7 +97,7 @@ class SaleForm extends Component {
               />
 
               {/* <Field
-                name="img"
+                name="image"
                 label="Image"
                 type="text"
                 component={DropzoneField}
@@ -100,7 +106,7 @@ class SaleForm extends Component {
                 icon="image"
                 iconClass="dark-grey"
               /> */}
-               {/* {this.state.preview && <img src={this.state.preview} alt="preview" />} */}
+              {/* {this.state.preview && <img src={this.state.preview} alt="preview" />} */}
               <div className="text-center mt-1-half">
                 <MDBBtn
                   color="info"
@@ -132,5 +138,9 @@ export default connect(
   mapState,
   actions
 )(
-  reduxForm({ form: "saleForm", enableReinitialize: true, validate })(SaleForm)
+  reduxForm({
+    form: "saleForm",
+    enableReinitialize: true,
+    validate
+  })(SaleForm)
 );
